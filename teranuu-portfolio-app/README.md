@@ -1,75 +1,94 @@
-# React + TypeScript + Vite
+# Teranuu Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A polished single-page portfolio for Denn Cayacap, built with React, TypeScript, Vite, and Tailwind CSS. The site presents a focused developer profile with scroll-aware navigation, selected project sections, experience highlights, and contact entry points.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Responsive portfolio layout with a fixed desktop directory and compact mobile flow.
+- Scroll-aware active section tracking for Overview, Projects, Experience, and Communication.
+- Midnight-indigo visual system with local Space Grotesk, DM Sans, and JetBrains Mono fonts.
+- Reusable UI primitives for badges, buttons, navigation menus, separators, and tooltips.
+- Accessible section landmarks, semantic content structure, favicon, and social metadata.
+- Production build pipeline through Vite and TypeScript.
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+- React 19
+- TypeScript
+- Vite 7
+- Tailwind CSS 4
+- Radix UI primitives
+- lucide-react
+- class-variance-authority
+- clsx and tailwind-merge
 
-Note: This will impact Vite dev & build performances.
+## Getting Started
 
-## Expanding the ESLint configuration
+Install dependencies:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Start the development server:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+npm run dev
+```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Build for production:
+
+```bash
+npm run build
+```
+
+Preview the production build:
+
+```bash
+npm run preview
+```
+
+Run ESLint:
+
+```bash
+npm run lint
+```
+
+On Windows PowerShell, if script execution blocks `npm`, use `npm.cmd` instead:
+
+```bash
+npm.cmd run build
+```
+
+## Project Structure
+
+```text
+teranuu-portfolio-app/
++-- public/              # Favicon and public SVG assets
++-- src/
+|   +-- components/ui/   # Reusable UI primitives
+|   +-- lib/utils.ts     # Class name composition helper
+|   +-- App.tsx          # Portfolio content and layout
+|   +-- App.css          # Tailwind theme, fonts, and base styles
+|   +-- main.tsx         # React entry point
++-- index.html           # App shell and metadata
++-- package.json         # Scripts and dependencies
++-- vite.config.ts       # Vite React and Tailwind setup
+```
+
+## Customization
+
+- Update portfolio sections, project entries, role history, and contact links in `src/App.tsx`.
+- Adjust the color palette, typography, Tailwind theme tokens, and global styles in `src/App.css`.
+- Edit page title, description, Open Graph metadata, and favicon references in `index.html`.
+- Replace public assets in `public/` and app assets in `src/assets/` as needed.
+
+Some current content, including sample company names and contact links, is structured as editable portfolio data. Swap those values for final production details before publishing.
+
+## Verification
+
+The production build was verified locally with:
+
+```bash
+npm.cmd run build -- --emptyOutDir false
 ```
